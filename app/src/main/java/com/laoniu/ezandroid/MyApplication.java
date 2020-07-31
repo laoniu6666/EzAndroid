@@ -1,8 +1,16 @@
 package com.laoniu.ezandroid;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.laoniu.ezandroid.view.FloatRoom;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreator;
@@ -39,5 +47,45 @@ public abstract class MyApplication extends Application {
 //                return new ClassicsFooter(context).setDrawableSize(20);
             }
         });
+    }
+
+    private ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+
+    public class ActivityLifecycleImpl implements ActivityLifecycleCallbacks {
+        @Override
+        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+        }
+
+        @Override
+        public void onActivityStarted(@NonNull Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityResumed(@NonNull Activity activity) {
+//            ViewGroup viewGroup = activity.findViewById(android.R.id.content);
+//            viewGroup.addView(FloatRoom.getInstance(activity),mParams);
+        }
+
+        @Override
+        public void onActivityPaused(@NonNull Activity activity) {
+//            ViewGroup viewGroup = activity.findViewById(android.R.id.content);
+//            viewGroup.removeView(FloatRoom.getInstance(activity));
+        }
+
+        @Override
+        public void onActivityStopped(@NonNull Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(@NonNull Activity activity) {
+
+        }
     }
 }

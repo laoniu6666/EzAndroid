@@ -5,12 +5,39 @@
     <color name="purple700">#3700B3</color>
     <color name="teal200">#03DAC5</color>
 
-    <color name="color_Theme">#0094ff</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
 
-    <color name="gray_div">#333333</color>
+    <color name="color_Theme">#333333</color>
+    <color name="bg_EditText">#fff5f5f5</color>
 
-    <color name="color_text_black">#ff0000</color>
+    <color name="gray_3">#333333</color>
+    <color name="gray_6">#666666</color>
+    <color name="gray_9">#999999</color>
+    <color name="gray_rect">#D2D2D2</color>
+    <color name="divider_ListView">#ffdbdbdb</color>
 
+    <color name="color_text_black">#333333</color>
+    <color name="color_text_black_center">#6D6F73</color>
+    <color name="color_text_black_low">#959AA6</color>
+
+    <color name="text_yellow">#FFC53D</color>
+    <color name="text_green">#73D13D</color>
+    <color name="text_red">#FF7875</color>
+    <color name="text_white">#FFFFFF</color>
+
+
+    <color name="turntable_item01">#84FFFA</color>
+    <color name="turntable_item02">#C0FF88</color>
+    <color name="turntable_item03">#FFD83E</color>
+    <color name="turntable_item04">#FFF0B9</color>
+    <color name="turntable_item05">#FFBA8D</color>
+    <color name="turntable_item06">#FF7CA6</color>
+    <color name="turntable_item07">#F34FFF</color>
+    <color name="turntable_item08">#AE5DFF</color>
+    <color name="turntable_item09">#708BFF</color>
+    <color name="turntable_item10">#7FC6FF</color>
+    <color name="turntable_yellow_avatorbg">#ffffc53d</color>
 
 
 </resources>

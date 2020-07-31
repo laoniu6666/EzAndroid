@@ -10,13 +10,14 @@
     <application
         android:name=".App"
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EzAndroid">
 
-        <activity android:name=".mvc.act.MainActivity">
+        <activity android:name=".ui.act.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,16 +25,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mvc.act.TestActivity"
+            android:name=".ui.act.TestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvc.act.SrollViewTestActivity"
+            android:name=".ui.act.SrollViewTestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvc.act.DemoActivity"
+            android:name=".ui.act.DemoActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name="com.laoniu.ezandroid.mvc.service.downloadService" />
+        <service android:name=".ui.service.downloadService" />
 
     </application>
 

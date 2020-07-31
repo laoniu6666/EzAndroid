@@ -2,16 +2,10 @@ package com.laoniu.ezandroid.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.VelocityTracker;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.Scroller;
 
-import com.laoniu.ezandroid.utils.L;
-import com.laoniu.ezandroid.utils.ScreenUtils;
+import com.blankj.utilcode.util.ScreenUtils;
 
 /**
  * Time:2020/06/03 14:11
