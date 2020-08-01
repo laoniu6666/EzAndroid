@@ -29,10 +29,10 @@ public class WKPermission {
     public static int CODE_APPSETTING=222;
 
     public Activity act;
-    public ZWKCallback call;
+    public WKCallback call;
     public String[] permissions;
 
-    public WKPermission(Activity act, ZWKCallback call){
+    public WKPermission(Activity act, WKCallback call){
         this.act=act;
         this.call=call;
     }

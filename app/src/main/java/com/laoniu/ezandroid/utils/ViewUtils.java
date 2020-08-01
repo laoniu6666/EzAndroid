@@ -18,7 +18,7 @@ public class ViewUtils {
         return ColorUtils.getColor(R.color.divider_ListView);
     }
 
-    public static void setEditText(EditText et, ImageView imageView, ZWKCallback callback){
+    public static void setEditText(EditText et, ImageView imageView, WKCallback callback){
         setTextChangedListener(et,imageView);
         setKeyBoardCanClick(et,callback);
     }
@@ -28,7 +28,7 @@ public class ViewUtils {
      * @param et
      * @param callback
      */
-    public static void setKeyBoardCanClick(EditText et, ZWKCallback callback){
+    public static void setKeyBoardCanClick(EditText et, WKCallback callback){
         et.setImeOptions(EditorInfo.IME_ACTION_GO);
         et.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -65,7 +65,7 @@ public class ViewUtils {
             }
         });
     }
-    public static void setTextChangedListener_Dot(final EditText edittext){
+    public static void setTextChangedListener_Dot(EditText edittext){
         edittext.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -73,21 +73,21 @@ public class ViewUtils {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (count != before) {
-                    String sss = "";
-                    String string = s.toString().replace(",", "");
-                    int b = string.length() / 3;
-                    if (string.length() >= 3 ) {
-                        int yushu = string.length() % 3;
-                        if (yushu == 0) {
-                            b = string.length() / 3 - 1;
-                            yushu = 3;
+                    String resultStr = "";
+                    String normalStr = s.toString().replace(",", "");
+                    int b = normalStr.length() / 3;
+                    if (normalStr.length() >= 3 ) {
+                        int dot = normalStr.length() % 3;
+                        if (dot == 0) {
+                            b = normalStr.length() / 3 - 1;
+                            dot = 3;
                         }
                         for (int i = 0; i < b; i++) {
-                            sss = sss + string.substring(0, yushu) + "," + string.substring(yushu, 3);
-                            string = string.substring(3, string.length());
+                            resultStr = resultStr + normalStr.substring(0, dot) + "," + normalStr.substring(dot, 3);
+                            normalStr = normalStr.substring(3, normalStr.length());
                         }
-                        sss = sss + string;
-                        edittext.setText(sss);
+                        resultStr = resultStr + normalStr;
+                        edittext.setText(resultStr);
                     }
                 }
                 edittext.setSelection(edittext.getText().length());
@@ -97,8 +97,33 @@ public class ViewUtils {
             }
         });
     }
-    public static String getText_Dot(final EditText edittext){
+
+
+
+    public static void setText_Dot(TextView tv,String text){
+        String resultStr = "";
+        String normalStr = text.replace(",", "");
+        int b = normalStr.length() / 3;
+        if (normalStr.length() >= 3 ) {
+            int dot = normalStr.length() % 3;
+            if (dot == 0) {
+                b = normalStr.length() / 3 - 1;
+                dot = 3;
+            }
+            for (int i = 0; i < b; i++) {
+                resultStr = resultStr + normalStr.substring(0, dot) + "," + normalStr.substring(dot, 3);
+                normalStr = normalStr.substring(3, normalStr.length());
+            }
+            resultStr = resultStr + normalStr;
+            tv.setText(resultStr);
+        }
+    }
+
+    public static String getText_EditText_Dot(final EditText edittext){
         return edittext.getText().toString().replace(",", "");
+    }
+    public static String getText_TextView_Dot(final TextView tv){
+        return tv.getText().toString().replace(",", "");
     }
 
 }

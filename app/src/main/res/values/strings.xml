@@ -9,4 +9,10 @@
     <string name="follow"><![CDATA[Follow us<br/>on <a href="http://twitter.com/umanoapp">Twitter</a>]]></string>
 
     <string name="dialog_superWinner_join">Joining the game will deduct %d coins from you, and winner will win %s of total entrance fee</string>
+
+    <string name="network_error">There is no network connection now, please check</string>
+    <string name="loading">loading</string>
+
+
+
 </resources>

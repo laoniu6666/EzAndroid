@@ -8,6 +8,7 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.laoniu.ezandroid.utils.L;
+import com.laoniu.ezandroid.utils.T;
 import com.laoniu.ezandroid.utils.WKHandler;
 import com.laoniu.ezandroid.view.dialog.WKDialog;
 
@@ -26,11 +27,23 @@ import okhttp3.Response;
 public abstract class OkHttpCallback implements Callback {
 
 	private static final String TAG = "RequestCallback";
-
 	private static Handler handler = new Handler(Looper.getMainLooper());
+	public boolean hasProgressDialog=true;
+
+	public OkHttpCallback(){
+	}
+	public OkHttpCallback(boolean hasProgressDialog){
+		this.hasProgressDialog=hasProgressDialog;
+	}
 
 	public void onResponse(Call call, Response response) throws IOException {
-		WKDialog.dissmissProgressDialog();
+		if(hasProgressDialog){
+			handler.post(new Runnable() {
+				public void run() {
+					WKDialog.dissmissProgressDialog();
+				}
+			});
+		}
 		Log.e(TAG, response.code() + "");
 		if (response.code() == 200 && response.isSuccessful()) {
 			JSONObject jo=null;
@@ -43,12 +56,13 @@ public abstract class OkHttpCallback implements Callback {
 				sendSuccess(call, jo);
 			}
 		} else {
-			sendFailure(call);
+			sendFailure(call,response.code()+"");
 		}
 	}
 
-	public void onFailure(Call call, IOException e) {
-		sendFailure(call);
+	public final void onFailure(Call call, IOException e) {
+		L.e("net work error,"+e.getLocalizedMessage().toString());
+		sendFailure(call,"network error");
 	}
 
 	private void sendSuccess(final Call call, final JSONObject obj) {
@@ -62,10 +76,10 @@ public abstract class OkHttpCallback implements Callback {
 		});
 	}
 
-	private void sendFailure(final Call call) {
+	private void sendFailure(final Call call,final String errMsg) {
 		handler.post(new Runnable() {
 			public void run() {
-				onFailure();
+				onFail(errMsg);
 				call.cancel();
 			}
 		});
@@ -73,6 +87,7 @@ public abstract class OkHttpCallback implements Callback {
 
 	public abstract void onSuccess(JSONObject obj);
 
-	public abstract void onFailure();
-
+	public void onFail(String errMsg){
+		T.toast(errMsg);
+	};
 }

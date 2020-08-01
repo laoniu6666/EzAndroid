@@ -18,7 +18,7 @@ import com.laoniu.ezandroid.model.Now_players_info;
 import com.laoniu.ezandroid.utils.T;
 import com.laoniu.ezandroid.utils.WKBitmapUtils;
 import com.laoniu.ezandroid.utils.WKCallback;
-import com.laoniu.ezandroid.view.LuckPan2;
+import com.laoniu.ezandroid.view.LuckPan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class TestActivity extends BaseActivity {
 
 
     @BindView(R.id.luckpan)
-    LuckPan2 luckpan;
+    LuckPan luckpan;
     @BindView(R.id.tv_start)
     TextView tvStart;
     @BindView(R.id.rl_pan)
@@ -111,7 +111,7 @@ public class TestActivity extends BaseActivity {
 
     public void addPan(){
         rl_pan.removeAllViews();
-        luckpan = new LuckPan2(TestActivity.this);
+        luckpan = new LuckPan(TestActivity.this);
         luckpan.setLayoutParams(new ViewGroup.LayoutParams(T.dp2px(300f),T.dp2px(300f)));
         rl_pan.addView(luckpan);
         luckpan.setItems(playerList);

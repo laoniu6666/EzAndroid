@@ -18,7 +18,7 @@ public class BaseActivity extends AppCompatActivity implements Handler.Callback 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        handler=new WKHandler(this, Looper.getMainLooper());
+        handler=new WKHandler(this);
     }
 
     @Override

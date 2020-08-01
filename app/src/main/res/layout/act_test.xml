@@ -18,7 +18,7 @@
         android:layout_centerInParent="true"
         android:layout_width="300dp"
         android:layout_height="300dp">
-        <com.laoniu.ezandroid.view.LuckPan2
+        <com.laoniu.ezandroid.view.LuckPan
             android:id="@+id/luckpan"
             android:visibility="gone"
             android:layout_width="match_parent"

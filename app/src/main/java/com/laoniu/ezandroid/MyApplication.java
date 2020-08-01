@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.laoniu.ezandroid.utils.MyActivityManager;
 import com.laoniu.ezandroid.view.FloatRoom;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
@@ -54,6 +55,7 @@ public abstract class MyApplication extends Application {
     public class ActivityLifecycleImpl implements ActivityLifecycleCallbacks {
         @Override
         public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
+            MyActivityManager.getInstance().setCurrentActivity(activity);
         }
 
         @Override
