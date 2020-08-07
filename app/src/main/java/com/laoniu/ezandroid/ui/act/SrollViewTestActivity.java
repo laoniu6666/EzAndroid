@@ -5,7 +5,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.ScreenUtils;
-import com.laoniu.ezandroid.BaseActivity;
+import com.laoniu.ezandroid.ui.BaseActivity;
 import com.laoniu.ezandroid.R;
 import com.laoniu.ezandroid.view.HorizontalScrollView;
 import com.laoniu.ezandroid.view.adapter.MyRecycleViewAdapter;
@@ -14,12 +14,13 @@ import com.laoniu.ezandroid.view.divider.RecycleViewDivider;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SrollViewTestActivity extends BaseActivity {
+public class SrollViewTestActivity extends AppCompatActivity {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;

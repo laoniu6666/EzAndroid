@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tab_1"
+        android:enabled="true"
+        android:icon="@drawable/slt_bid_01"
+        android:title="@string/bottomBar_1"/>
+
+    <item
+        android:id="@+id/tab_2"
+        android:enabled="true"
+        android:icon="@drawable/slt_bid_02"
+        android:title="@string/bottomBar_2"/>
+
+    <item
+        android:id="@+id/tab_3"
+        android:enabled="true"
+        android:icon="@drawable/slt_bid_03"
+        android:title="@string/bottomBar_3"/>
+    <item
+        android:id="@+id/tab_4"
+        android:enabled="true"
+        android:icon="@drawable/slt_bid_04"
+        android:title="@string/bottomBar_4"/>
+
+</menu>

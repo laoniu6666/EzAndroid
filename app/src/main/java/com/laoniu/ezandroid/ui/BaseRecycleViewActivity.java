@@ -1,4 +1,4 @@
-package com.laoniu.ezandroid;
+package com.laoniu.ezandroid.ui;
 
 import android.os.Bundle;
 import android.os.Message;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.laoniu.ezandroid.R;
 import com.laoniu.ezandroid.utils.T;
 import com.laoniu.ezandroid.view.adapter.MyRecycleViewAdapter;
 import com.laoniu.ezandroid.view.divider.RecycleViewDivider;
@@ -23,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class BaseRecycleViewActivity extends BaseActivity {
+public abstract class BaseRecycleViewActivity extends BaseActivity {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;

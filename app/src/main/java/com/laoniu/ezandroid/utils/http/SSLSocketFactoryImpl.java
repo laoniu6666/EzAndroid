@@ -19,9 +19,6 @@ import javax.net.ssl.X509TrustManager;
 
 @Deprecated
 public class SSLSocketFactoryImpl extends SSLSocketFactory {
-    // Android 5.0+ (API level21) provides reasonable default settings
-    // but it still allows SSLv3
-    // https://developer.android.com/about/versions/android-5.0-changes.html#ssl
     static String protocols[] = null, cipherSuites[] = null;
 
     static {

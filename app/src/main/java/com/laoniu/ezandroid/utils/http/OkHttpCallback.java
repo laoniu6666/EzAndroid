@@ -2,19 +2,17 @@ package com.laoniu.ezandroid.utils.http;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.blankj.utilcode.util.ToastUtils;
 import com.laoniu.ezandroid.utils.L;
 import com.laoniu.ezandroid.utils.T;
-import com.laoniu.ezandroid.utils.WKHandler;
 import com.laoniu.ezandroid.view.dialog.WKDialog;
 
 import java.io.IOException;
 
-import androidx.annotation.NonNull;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -26,9 +24,10 @@ import okhttp3.Response;
  */
 public abstract class OkHttpCallback implements Callback {
 
-	private static final String TAG = "RequestCallback";
 	private static Handler handler = new Handler(Looper.getMainLooper());
 	public boolean hasProgressDialog=true;
+
+	private String error_json="server jsonStr error";
 
 	public OkHttpCallback(){
 	}
@@ -44,35 +43,38 @@ public abstract class OkHttpCallback implements Callback {
 				}
 			});
 		}
-		Log.e(TAG, response.code() + "");
-		if (response.code() == 200 && response.isSuccessful()) {
+		L.e("responseCode:\n"+ response.code() + "");
+		if (response.isSuccessful()) {
+			String string = response.body().string();
+			L.e("返回参数:\n"+ string);
+
 			JSONObject jo=null;
 			try {
-				jo = JSON.parseObject(response.body().string());
+				jo = JSON.parseObject(string);
 			}catch (Exception e){
-				L.e("服务端返回了错误的json格式");
+				L.e(error_json);
 			}
-			if(jo!=null){
+			if(jo==null){
+				sendFailure(call,error_json);
+			}else{
 				sendSuccess(call, jo);
 			}
 		} else {
-			sendFailure(call,response.code()+"");
+			sendFailure(call,"code="+response.code());
 		}
 	}
 
 	public final void onFailure(Call call, IOException e) {
-		L.e("net work error,"+e.getLocalizedMessage().toString());
+		L.e("net work error:\n"+e.getLocalizedMessage().toString());
 		sendFailure(call,"network error");
 	}
 
 	private void sendSuccess(final Call call, final JSONObject obj) {
 		handler.post(new Runnable() {
 			public void run() {
-				Log.e("Response", obj.toString());
 				onSuccess(obj);
 				call.cancel();
 			}
-
 		});
 	}
 
@@ -88,6 +90,6 @@ public abstract class OkHttpCallback implements Callback {
 	public abstract void onSuccess(JSONObject obj);
 
 	public void onFail(String errMsg){
-		T.toast(errMsg);
+		ToastUtils.showShort(errMsg);
 	};
 }

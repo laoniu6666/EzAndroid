@@ -11,8 +11,10 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.blankj.utilcode.util.SizeUtils;
-import com.laoniu.ezandroid.BaseActivity;
+import com.laoniu.ezandroid.ui.BaseActivity;
 import com.laoniu.ezandroid.R;
 import com.laoniu.ezandroid.model.Now_players_info;
 import com.laoniu.ezandroid.utils.T;
@@ -26,7 +28,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TestActivity extends BaseActivity {
+public class TestActivity extends AppCompatActivity {
 
 
     @BindView(R.id.luckpan)

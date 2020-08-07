@@ -13,6 +13,24 @@
     <string name="network_error">There is no network connection now, please check</string>
     <string name="loading">loading</string>
 
+    <string name="bottomBar_1">首页</string>
+    <string name="bottomBar_2">发现</string>
+    <string name="bottomBar_3">消息</string>
+    <string name="bottomBar_4">我的</string>
 
+    <string name="dialog_title">系统提示</string>
+    <string name="dialog_confirm">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="title_activity_act_main2">act_main2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 
 </resources>

@@ -7,6 +7,11 @@
 
     <color name="transparent">#00000000</color>
     <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#FF7875</color>
+    <color name="blue">#00a5e0</color>
+    <color name="green">#73D13D</color>
+    <color name="yellow">#FFC53D</color>
 
     <color name="color_Theme">#333333</color>
     <color name="bg_EditText">#fff5f5f5</color>
@@ -38,6 +43,10 @@
     <color name="turntable_item09">#708BFF</color>
     <color name="turntable_item10">#7FC6FF</color>
     <color name="turntable_yellow_avatorbg">#ffffc53d</color>
+
+
+    <color name="dialog_ios_line">#c6c6c6</color>
+    <color name="dialog_ios_blue">#037BFF</color>
 
 
 </resources>

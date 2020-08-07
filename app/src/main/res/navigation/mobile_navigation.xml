@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:label="@string/bottomBar_1"
+        tools:layout="@layout/fmt_home" />
+
+    <fragment
+        android:id="@+id/navigation_chat"
+        android:label="@string/bottomBar_2"
+        tools:layout="@layout/fmt_chat" />
+
+    <fragment
+        android:id="@+id/navigation_my"
+        android:label="@string/bottomBar_3"
+        tools:layout="@layout/fmt_my" />
+</navigation>

@@ -1,7 +1,8 @@
 package com.laoniu.ezandroid.utils.http.upload;
 
 import com.laoniu.ezandroid.utils.L;
-import com.laoniu.ezandroid.utils.http.OkHttpUtils;
+import com.laoniu.ezandroid.utils.http.WKHttp;
+import com.laoniu.ezandroid.utils.http.WKOkhttpClient;
 
 import java.io.File;
 import java.io.IOException;
@@ -91,7 +92,7 @@ public class uploadUtils {
 
             //创建Request
             final Request request = new Request.Builder().url(url).post(body).build();
-            final Call call = OkHttpUtils.getClient().newBuilder().writeTimeout(50, TimeUnit.SECONDS).build().newCall(request);
+            final Call call = WKOkhttpClient.getInstance().newBuilder().writeTimeout(50, TimeUnit.SECONDS).build().newCall(request);
             call.enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {

@@ -18,7 +18,7 @@ import okhttp3.RequestBody;
 public class SignUtils {
 
     static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
-    private static final String SECRET = "MDkwMTk5";
+    public static final String SECRET = "MDkwMTk5";
 
     public static RequestBody getSignedData(Map<String, Object> request_map){
         String fromJson = GsonUtils.toJson(request_map);
