@@ -71,14 +71,18 @@ public class ActionBarHelper {
 	}
 
 	public static void setRight(String str, Activity context) {
-		if (null != context.findViewById(R.id.tv_right))
-			((TextView) context.findViewById(R.id.tv_right)).setText(str);
-			((TextView) context.findViewById(R.id.tv_right)).setVisibility(View.VISIBLE);
+		if (null != context.findViewById(R.id.tv_right)){
+			TextView tv_right = (TextView) context.findViewById(R.id.tv_right);
+			tv_right.setText(str);
+			tv_right.setVisibility(View.VISIBLE);
+		}
 	}
-	public static void setRightImage(@IdRes int resId, Activity context) {
-		if (null != context.findViewById(R.id.iv_right))
-			((ImageView) context.findViewById(R.id.iv_right)).setImageResource(resId);
-		((TextView) context.findViewById(R.id.iv_right)).setVisibility(View.VISIBLE);
+	public static void setRightImage(int resId, Activity context) {
+		if (null != context.findViewById(R.id.iv_right)){
+			ImageView ivRight = (ImageView) context.findViewById(R.id.iv_right);
+			ivRight.setImageResource(resId);
+			context.findViewById(R.id.iv_right).setVisibility(View.VISIBLE);
+		}
 	}
 
 

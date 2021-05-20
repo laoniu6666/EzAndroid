@@ -1,6 +1,5 @@
 package com.laoniu.ezandroid.ui.act;
 
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -21,7 +20,6 @@ import java.util.List;
 
 public class MainActivity extends BaseBindingActivity<ActMainBinding> {
 
-    ActMainBinding binding;
     List<Fragment> fragments;
     AppBarMainBinding main;
 
@@ -33,12 +31,12 @@ public class MainActivity extends BaseBindingActivity<ActMainBinding> {
     @Override
     public void initView() {
         main = binding.appbarmain;
-        setSupportActionBar(main.toolbar);
+        setTitle("主页");
         //viewpager
         setViewPager();
     }
 
-    public void setViewPager(){
+    public void setViewPager() {
         fragments = new ArrayList<>();
         fragments.add(TestFmt.newInstance(getBundle(getString(R.string.bottomBar_1))));
         fragments.add(TestFmt.newInstance(getBundle(getString(R.string.bottomBar_2))));
@@ -58,7 +56,7 @@ public class MainActivity extends BaseBindingActivity<ActMainBinding> {
             }
         });
         // ViewPager 滑动事件监听
-        main.viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
+        main.viewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);

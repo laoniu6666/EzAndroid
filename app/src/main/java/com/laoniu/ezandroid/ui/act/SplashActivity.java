@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
+import com.blankj.utilcode.util.ColorUtils;
+import com.blankj.utilcode.util.ResourceUtils;
 import com.laoniu.ezandroid.R;
 import com.laoniu.ezandroid.utils.T;
 
@@ -24,7 +26,7 @@ public class SplashActivity extends FragmentActivity {
         TextView tv = new TextView(this);
         tv.setText("Welcome");
         tv.setTextSize(T.dp2px(20));
-        tv.setTextColor(getColor(R.color.red));
+        tv.setTextColor(ColorUtils.getColor(R.color.red));
         tv.setGravity(Gravity.CENTER);
         ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         tv.setLayoutParams(lp);

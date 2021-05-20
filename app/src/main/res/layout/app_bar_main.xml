@@ -8,21 +8,10 @@
         android:layout_height="match_parent"
         tools:context=".ui.act.MainActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/Theme.EzAndroid.PopupOverlay">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/design_default_color_primary"
-                app:popupTheme="@style/Theme.null.PopupOverlay" />
-
-        </com.google.android.material.appbar.AppBarLayout>
+        <include layout="@layout/layout_actionbar"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
