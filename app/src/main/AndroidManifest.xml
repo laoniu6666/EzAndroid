@@ -3,7 +3,6 @@
     package="com.laoniu.ezandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -37,7 +36,6 @@
             android:name=".ui.act.DemoActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name=".ui.service.downloadService" />
     </application>
 
 </manifest>

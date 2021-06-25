@@ -21,14 +21,15 @@ import androidx.appcompat.app.AlertDialog;
  */
 public class WKDialog {
 
-    public static ProgressDialog showProgressDialog(String msg){
-        return showProgressDialog(false,"加载中..");//默认不可手动取消
+    public static ProgressDialog showProgressDialog(String msg) {
+        return showProgressDialog(false, "加载中..");//默认不可手动取消
     }
 
     static ProgressDialog waitingDialog;
-    public static ProgressDialog showProgressDialog(boolean cancelable,String msg){
+
+    public static ProgressDialog showProgressDialog(boolean cancelable, String msg) {
         dissmissProgressDialog();
-        waitingDialog= new ProgressDialog(App.getInstance());
+        waitingDialog = new ProgressDialog(App.getInstance());
         waitingDialog.setTitle("系统提示");
         waitingDialog.setMessage(msg);
         waitingDialog.setIndeterminate(true);
@@ -37,28 +38,30 @@ public class WKDialog {
         waitingDialog.show();
         return waitingDialog;
     }
-    public static void dissmissProgressDialog(){
-        if(null!=waitingDialog && waitingDialog.isShowing()){
+
+    public static void dissmissProgressDialog() {
+        if (null != waitingDialog && waitingDialog.isShowing()) {
             waitingDialog.dismiss();
-            waitingDialog=null;
+            waitingDialog = null;
         }
     }
 
 
     /*************************************************************/
 
-    public static void showSureDialog(String content){
-        showSureDialog(content,null);
+    public static void showSureDialog(String content) {
+        showSureDialog(content, null);
     }
-    public static void showSureDialog(String content, final WKDialogCallback callback){
-        final AlertDialog.Builder builder= new AlertDialog.Builder(App.getInstance());
+
+    public static void showSureDialog(String content, final WKDialogCallback callback) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(App.getInstance());
         builder.setTitle("系统提示");
         builder.setMessage(content);
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                if(null!=callback){
+                if (null != callback) {
                     callback.onCall();
                 }
             }
@@ -67,11 +70,11 @@ public class WKDialog {
     }
 
 
-
     /*************************************************************/
-    static String password="123";
-    public static void showKeyDialog(Context act, final WKDialogCallback call){
-        Dialog d=new Dialog(act);
+    static String password = "123";
+
+    public static void showKeyDialog(Context act, final WKDialogCallback call) {
+        Dialog d = new Dialog(act);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
@@ -92,10 +95,10 @@ public class WKDialog {
             @Override
             public void onClick(View view) {
                 String str = et.getText().toString();
-                if(str.equals(password)){
+                if (str.equals(password)) {
                     d.dismiss();
                     call.onCall();
-                }else{
+                } else {
                     T.toast("密码输入错误!");
                 }
             }
@@ -109,7 +112,8 @@ public class WKDialog {
         d.show();
     }
 
-    public interface WKDialogCallback{
+    public interface WKDialogCallback {
+
         void onCall();
     }
 }

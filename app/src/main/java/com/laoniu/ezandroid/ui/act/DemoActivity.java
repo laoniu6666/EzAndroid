@@ -29,6 +29,7 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DemoActivity extends AppCompatActivity {
+
     private static final String TAG = "DemoActivity";
 
     private SlidingUpPanelLayout mLayout;
@@ -50,12 +51,12 @@ public class DemoActivity extends AppCompatActivity {
 
         List<String> your_array_list = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            your_array_list.add("item:"+(i+1));
+            your_array_list.add("item:" + (i + 1));
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
-                your_array_list );
+                your_array_list);
 
         lv.setAdapter(arrayAdapter);
 
@@ -126,7 +127,7 @@ public class DemoActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_toggle: {
                 if (mLayout != null) {
                     if (mLayout.getPanelState() != PanelState.HIDDEN) {

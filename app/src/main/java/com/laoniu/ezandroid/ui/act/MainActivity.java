@@ -31,7 +31,7 @@ public class MainActivity extends BaseBindingActivity<ActMainBinding> {
     @Override
     public void initView() {
         main = binding.appbarmain;
-        setTitle("主页");
+        setTitleBar("主页", false);
         //viewpager
         setViewPager();
     }

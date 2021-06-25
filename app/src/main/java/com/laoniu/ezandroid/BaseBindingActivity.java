@@ -15,7 +15,8 @@ import com.laoniu.ezandroid.utils.ActionBarHelper;
 import com.laoniu.ezandroid.utils.WKHandler;
 
 
-public abstract class BaseBindingActivity<B extends ViewDataBinding> extends AppCompatActivity implements Handler.Callback {
+public abstract class BaseBindingActivity<B extends ViewDataBinding> extends AppCompatActivity implements
+        Handler.Callback {
 
     public static WKHandler handler;
     public B binding;
@@ -23,39 +24,44 @@ public abstract class BaseBindingActivity<B extends ViewDataBinding> extends App
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        handler=new WKHandler(this);
-        binding=DataBindingUtil.setContentView(this,getLayoutId());
-        onLeftClick();
+        handler = new WKHandler(this);
+        binding = DataBindingUtil.setContentView(this, getLayoutId());
         initView();
     }
 
     public abstract int getLayoutId();
+
     public abstract void initView();
 
-
-    public void onLeftClick(){
-        ActionBarHelper.setLeftClick(this,null);
-    }
-    public void onLeftClick(View.OnClickListener clickListener){
-        ActionBarHelper.setLeftClick(this,null);
+    public void setTitleBar(String title) {
+        setTitleBar(title, true, null);
     }
 
-    public void setTitle(String title){
-        ActionBarHelper.setTitle(title,this);
+    public void setTitleBar(String title, View.OnClickListener onLeftClick) {
+        setTitleBar(title, true, onLeftClick);
     }
 
-    public Bundle getBundle(String data){
+    public void setTitleBar(String title, boolean hasLeftButton) {
+        setTitleBar(title, true, null);
+    }
+
+    public void setTitleBar(String title, boolean hasLeftButton, View.OnClickListener onLeftClick) {
+        ActionBarHelper.setTitle(title, this);
+        ActionBarHelper.setLeft(this, hasLeftButton);
+    }
+
+    public Bundle getBundle(String data) {
         Bundle bundle = new Bundle();
-        bundle.putString("data",data);
+        bundle.putString("data", data);
         return bundle;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(null!=handler){
+        if (null != handler) {
             handler.removeCallbacksAndMessages(null);
-            handler=null;
+            handler = null;
         }
     }
 

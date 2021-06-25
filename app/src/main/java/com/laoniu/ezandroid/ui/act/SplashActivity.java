@@ -5,14 +5,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import com.blankj.utilcode.util.ColorUtils;
-import com.blankj.utilcode.util.ResourceUtils;
 import com.laoniu.ezandroid.R;
 import com.laoniu.ezandroid.utils.T;
 

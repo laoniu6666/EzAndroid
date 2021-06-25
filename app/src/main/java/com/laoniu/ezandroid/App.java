@@ -1,26 +1,23 @@
 package com.laoniu.ezandroid;
 
-import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
-import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
+import com.laoniu.ezandroid.utils.WKHandler;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
 
 public class App extends MyApplication {
 
-    public static Application instance;
+    public static Application mInstance;
     private static RefWatcher refWatcher;
+    public static WKHandler mHandler;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
-        instance=this;
+        mInstance = this;
         if (LeakCanary.isInAnalyzerProcess(this)) {//1
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
@@ -30,8 +27,12 @@ public class App extends MyApplication {
         registerActivityLifecycleCallbacks(new ActivityLifecycleImpl());
     }
 
-    public static Application getInstance(){
-        return instance;
+    public static Application getInstance() {
+        return mInstance;
+    }
+
+    public static WKHandler getHandler() {
+        return mHandler;
     }
 
 }
