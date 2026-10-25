@@ -37,5 +37,5 @@ dependencies:
 
     //fastjson
     implementation 'com.alibaba:fastjson:1.2.9'
-    //解决65535
-    implementation 'com.android.support:multidex:1.0.2'
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'

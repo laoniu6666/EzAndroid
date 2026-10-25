@@ -3,12 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 29
+    namespace = "com.laoniu.ezandroid"
+    compileSdkVersion 37
 
     defaultConfig {
         applicationId "com.laoniu.ezandroid"
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion 23
+        targetSdkVersion 37
         versionCode 1
         versionName "1.0"
 
@@ -22,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     buildFeatures {
         dataBinding = true
@@ -64,10 +65,6 @@ dependencies {
 
     //fastjson
     implementation 'com.alibaba:fastjson:1.2.9'
-    //解决65535
-    implementation 'com.android.support:multidex:1.0.2'
 
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 }

@@ -1,8 +1,10 @@
 package com.laoniu.ezandroid.ui;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.Gravity;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,9 +28,7 @@ import butterknife.ButterKnife;
 
 public abstract class BaseRecycleViewActivity extends BaseActivity {
 
-    @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
 
     private List<String> lists;
@@ -39,14 +39,19 @@ public abstract class BaseRecycleViewActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_test);
         ButterKnife.bind(this);
-        initView();
+        try {
+            initView();
+        }catch (Exception e){
 
-
+        }
     }
 
+    @SuppressLint({"WrongViewCast", "ResourceType"})
     private void initView() {
 //        准备数据源
         lists = new ArrayList<>();
+        recyclerView = findViewById(R.id.recyclerView);
+        refreshLayout = findViewById(R.id.refreshLayout);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new RecycleViewDivider(this,

@@ -1,9 +1,7 @@
 package com.laoniu.ezandroid.ui.act;
 
 import android.view.Menu;
-import android.view.MenuItem;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.laoniu.ezandroid.BaseBindingActivity;
 import com.laoniu.ezandroid.R;
 import com.laoniu.ezandroid.databinding.ActMainBinding;
@@ -64,27 +62,19 @@ public class MainActivity extends BaseBindingActivity<ActMainBinding> {
             }
         });
         //BottomNavigationView 点击事件监听
-        main.bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                int menuId = menuItem.getItemId();
-                // 跳转指定页面：Fragment
-                switch (menuId) {
-                    case R.id.tab_1:
-                        main.viewpager.setCurrentItem(0);
-                        break;
-                    case R.id.tab_2:
-                        main.viewpager.setCurrentItem(1);
-                        break;
-                    case R.id.tab_3:
-                        main.viewpager.setCurrentItem(2);
-                        break;
-                    case R.id.tab_4:
-                        main.viewpager.setCurrentItem(3);
-                        break;
-                }
-                return false;
+        main.bnv.setOnNavigationItemSelectedListener(menuItem -> {
+            int menuId = menuItem.getItemId();
+            // 跳转指定页面：Fragment
+            if (menuId == R.id.tab_1) {
+                main.viewpager.setCurrentItem(0);
+            } else if (menuId == R.id.tab_2) {
+                main.viewpager.setCurrentItem(1);
+            } else if (menuId == R.id.tab_3) {
+                main.viewpager.setCurrentItem(2);
+            } else if (menuId == R.id.tab_4) {
+                main.viewpager.setCurrentItem(3);
             }
+            return false;
         });
     }
 
